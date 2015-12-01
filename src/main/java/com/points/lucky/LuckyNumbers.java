@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class LuckyNumbers {
-	private Set<Integer> luckySet = new HashSet<Integer>();
+	private Set<Integer> luckySet = new HashSet<>();
 	private int originalNumber;
 	private final int MAX_ITERATIONS = 100;
 	private final int BASE_CASE = 1;
@@ -13,19 +13,19 @@ public class LuckyNumbers {
 		if (num == 0) {
 			return false;
 		}
-		if (luckySet.contains(num)){
+		if (this.luckySet.contains(num)){
 			return true;
 		}
-		originalNumber = num;
+		this.originalNumber = num;
 		return recursiveLucky(num, 1);
 	}
 	
 	private boolean recursiveLucky(int num, int recCount){
-		if(num == BASE_CASE){
-			luckySet.add(originalNumber);
+		if(num == this.BASE_CASE){
+			this.luckySet.add(this.originalNumber);
 			return true;
 		}
-		if(recCount >= MAX_ITERATIONS){
+		if(recCount >= this.MAX_ITERATIONS){
 			return false;
 		}
 		
@@ -46,7 +46,7 @@ public class LuckyNumbers {
 	}
 	
 	public int getCacheSetSize() {
-		return luckySet.size();
+		return this.luckySet.size();
 	}
 
 }
